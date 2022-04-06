@@ -47,7 +47,7 @@ Voici le détails:
       ORDER BY somme desc
       LIMIT 10; 
  - Les principaux consortiums de producteurs de vaccins en terme de production
- 
+      grafana-storage/Nb_total_de_vaccins_produits_en_millions_-_Grafana0406.png
       SELECT vaccines, sum(total_vaccinations) as 'somme'
       FROM country_vaccinations
       GROUP By vaccines
