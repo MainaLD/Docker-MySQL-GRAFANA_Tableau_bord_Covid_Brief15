@@ -6,17 +6,28 @@ services:
     container_name: mysql_covid
     environment:
       # je créer un utilisateur et un mdp
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=admin
-      - MYSQL_PASSWORD=admin123
-      # - MYSQL_DATABASE=vaccins19
+      - MYSQL_ROOT_PASSWORD=exemple
+      # autre écriture
+      # MYSQL_ROOT_PASSWORD : root
+      - MYSQL_DATABASE=vaccinations
     volumes:
-      - mysql-data:/var/lib/mysql
+      # - db:/var/lib/mysql
+      # Pour lier avec le service volume, je mets son nom (pas le name)
+      - /mysqldb:/var/lib/mysql
       # Pour importer directement la database
-      - ./vaccination.sql:/docker-entrypoint-initdb.d/vaccination.sql
+      - ./data/vaccination.sql:/docker-entrypoint-initdb.d/vaccination.sql
     ports:
       - "3306:3306"
     restart: always
+    networks:
+      - mysql_network
+
+  # Service pour administrer les bd, si pas à l'aise
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
     networks:
       - mysql_network
 
@@ -30,10 +41,16 @@ services:
       - GRAFANA_ADMIN_PASSWORD=admin
     networks:
       - mysql_network
+    volumes:
+      - grafana-storage:/var/lib/grafana
 
 volumes:
-  mysql-data:
-    name: mysql-data
+  # nom du volume ext qui sera appelé dans les autres volumes
+  mysql-db:
+    # nom du volume interne, je peux mettre ce que je veux, mais par convention, c'est le même :
+    name: mysqldb
+  grafana-storage:
+    name: grafana-storage
 
 networks:
   mysql_network:
