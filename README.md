@@ -23,7 +23,37 @@ Explication :
 
 **************************************************************************************************************
 ## Graphiques :
-![graphique1](https://github.com/MainaLD/Docker_tableau_bord_Covid/blob/main/grafana01.JPG)
+Nous avons tracé 4 graphes pour donner une vue d'ensemble de la situaition Covid à partir des données disponibles portant sur la période du 20 décembre 2020 au 20 février 2021.  Voici la Requete SQL utilisée avec des bar chars:
+
+Voici le tableau de bord de la situation
+      ![graphique1](https://github.com/MainaLD/Docker_tableau_bord_Covid/blob/main/grafana01.JPG)
+
+Voici le détails:
+- Vue d'ensemble de la vaccination dans le monde
+
+     SELECT daily_vaccinations_per_million AS "time", total_vaccinations
+      FROM country_vaccinations
+      ORDER BY daily_vaccinations_per_million
+- Situation de la France
+
+      SELECT total_vaccinations, people_vaccinated, people_fully_vaccinated
+      FROM country_vaccinations
+      WHERE country = "France"
+ - Palmares de 10 pays qui ont le plus vaccines
+
+      SELECT country, sum(total_vaccinations) as 'somme'
+      FROM country_vaccinations
+      GROUP By country
+      ORDER BY somme desc
+      LIMIT 10; 
+ - Les principaux consortiums de producteurs de vaccins en terme de production
+ 
+      SELECT vaccines, sum(total_vaccinations) as 'somme'
+      FROM country_vaccinations
+      GROUP By vaccines
+      ORDER BY somme desc;
+
+
 
 
 
