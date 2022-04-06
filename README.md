@@ -21,7 +21,9 @@ Explication :
 
 
 
-
+**************************************************************************************************************
+## Graphiques :
+![graphique1](https://github.com/MainaLD/Docker_tableau_bord_Covid/blob/main/grafana01.JPG)
 
 
 
