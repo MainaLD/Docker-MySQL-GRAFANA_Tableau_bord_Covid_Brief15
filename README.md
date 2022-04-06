@@ -30,7 +30,7 @@ Voici le tableau de bord de la situation
 
 Voici le détails:
 - Vue d'ensemble de la vaccination dans le monde
-
+     grafana-storage/Nb_total_de_vaccns_dans_le_monde-_Grafana0406.png
      SELECT daily_vaccinations_per_million AS "time", total_vaccinations
       FROM country_vaccinations
       ORDER BY daily_vaccinations_per_million
