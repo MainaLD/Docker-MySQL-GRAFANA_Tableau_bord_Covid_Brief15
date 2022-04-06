@@ -40,7 +40,7 @@ Voici le détails:
       FROM country_vaccinations
       WHERE country = "France"
  - Palmares de 10 pays qui ont le plus vaccines
-
+grafana-storage/Palmares_des_10_premiers_pays_les_plus_vaccines_-_Grafana0406.png
       SELECT country, sum(total_vaccinations) as 'somme'
       FROM country_vaccinations
       GROUP By country
