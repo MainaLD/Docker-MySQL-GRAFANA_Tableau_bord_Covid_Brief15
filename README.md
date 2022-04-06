@@ -30,12 +30,12 @@ Voici le tableau de bord de la situation
 
 Voici le détails:
 - Vue d'ensemble de la vaccination dans le monde
-     grafana-storage/Nb_total_de_vaccns_dans_le_monde-_Grafana0406.png
+grafana-storage/Nb_total_de_vaccns_dans_le_monde-_Grafana0406.png
      SELECT daily_vaccinations_per_million AS "time", total_vaccinations
       FROM country_vaccinations
       ORDER BY daily_vaccinations_per_million
 - Situation de la France
-
+grafana-storage/Situation vaccinale en France- Grafana 0406.png
       SELECT total_vaccinations, people_vaccinated, people_fully_vaccinated
       FROM country_vaccinations
       WHERE country = "France"
@@ -47,7 +47,7 @@ grafana-storage/Palmares_des_10_premiers_pays_les_plus_vaccines_-_Grafana0406.pn
       ORDER BY somme desc
       LIMIT 10; 
  - Les principaux consortiums de producteurs de vaccins en terme de production
-      grafana-storage/Nb_total_de_vaccins_produits_en_millions_-_Grafana0406.png
+ grafana-storage/Nb_total_de_vaccins_produits_en_millions_-_Grafana0406.png
       SELECT vaccines, sum(total_vaccinations) as 'somme'
       FROM country_vaccinations
       GROUP By vaccines
