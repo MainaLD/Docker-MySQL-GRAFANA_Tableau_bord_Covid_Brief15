@@ -1,4 +1,4 @@
-# Docker_tableau_bord_Covid
+# Docker, MySQL et GRAFANA : Tableau de bord sur la Covid (Brief n°15)
 Utiliser un conteneur Grafana, grâce à Docker, pour faire de la Dataviz.
 
 **************************************************************************************************************
